@@ -1,0 +1,12 @@
+{
+  "name": "radio",
+  "version": "1.0.0",
+  "description": "radio init",
+  "main": "index.js",
+  "repository": "git@github.com:jishiniao/radio.git",
+  "author": "kaimi",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.5.6"
+  }
+}
