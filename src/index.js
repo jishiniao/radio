@@ -1,7 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import Radio from './Radio'
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <Radio />,
   document.getElementById('root')
 )
+
+if(module.hot) {
+  // module.hot.accept('/', function() {
+  //   ReactDOM.render(
+  //     <h1>Hello, worsdfld!</h1>,
+  //     document.getElementById('root')
+  //   )
+  // })
+}

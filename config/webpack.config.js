@@ -1,18 +1,32 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+
+const hotMiddlewareScript = 'webpack-hot-middleware/client'
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, '../src/index.js')
+    app: [path.resolve(__dirname, '../src/index.js'), hotMiddlewareScript]
   },
+  devtool: 'inline-source-map',
+  // devServer: {
+  //   contentBase: path.resolve(__dirname, '../build')
+  // },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html')
-    })
+      inject: true,
+      title: 'radio component',
+      // template: require('html-webpack-template'),
+      template: path.resolve(__dirname, '../src/index.ejs')
+    }),
+    // new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   output: {
     filename: '[name]bundle.js',
-    path: path.resolve(__dirname, '../build')
+    path: path.resolve(__dirname, '../build'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -25,16 +39,16 @@ module.exports = {
             presets: ['env']
           }
         }
-      },
-      {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            attrs: [':data-src']
-          }
-        }
       }
+      // {
+      //   test: /\.(html)$/,
+      //   use: {
+      //     loader: 'html-loader',
+      //     options: {
+      //       attrs: [':data-src']
+      //     }
+      //   }
+      // }
     ]
   }
 }
