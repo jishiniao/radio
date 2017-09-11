@@ -7,7 +7,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'jishiniao react component : radio'
+      template: path.resolve(__dirname, '../src/index.html')
     })
   ],
   output: {
@@ -23,6 +23,15 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env']
+          }
+        }
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            attrs: [':data-src']
           }
         }
       }
