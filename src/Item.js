@@ -1,25 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import IconAlipay from './imgs/icon-alipay.png'
-import IconWechat from './imgs/icon-wechat.png'
 
-const Icon = styled.span`
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 100% 100%;
-`
-
-const Icon1Alipay = styled(Icon)`
-  background-image: url('${IconAlipay}');
-`
-
-const Icon1Wechat = styled(Icon)`
-  background-image: url('${IconWechat}');
-`
+import { IconAlipay, IconWechat } from './Icon'
 
 const ItemStyle = {
   cursor: 'pointer',
@@ -42,18 +24,18 @@ export default class Item extends React.Component {
     const { icon } = this.props
     switch(icon) {
       case 'alipay': {
-        return <Icon1Alipay />
+        return <IconAlipay />
       }
       case 'wechat': {
-        return <Icon1Wechat />
+        return <IconWechat />
       }
       default:
         return null
     }
   }
 
-  renderText() {
-
+  renderRadio() {
+    
   }
 
   render() {
