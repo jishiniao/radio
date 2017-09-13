@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Radio from './Radio'
+import Radio from '../src/Radio'
 
 ReactDOM.render(
   <Radio />,
