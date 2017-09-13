@@ -6,7 +6,7 @@ const hotMiddlewareScript = 'webpack-hot-middleware/client'
 
 module.exports = {
   entry: {
-    app: [path.resolve(__dirname, '../src/index.js'), hotMiddlewareScript]
+    app: [path.resolve(__dirname, '../examples/index.js'), hotMiddlewareScript]
   },
   devtool: 'inline-source-map',
   // devServer: {
@@ -17,7 +17,7 @@ module.exports = {
       inject: true,
       title: 'radio component',
       // template: require('html-webpack-template'),
-      template: path.resolve(__dirname, '../src/index.ejs')
+      template: path.resolve(__dirname, '../examples/index.ejs')
     }),
     // new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

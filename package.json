@@ -1,7 +1,7 @@
 {
-  "name": "radio",
-  "version": "1.0.0",
-  "description": "radio init",
+  "name": "ui-radio",
+  "version": "1.0.1",
+  "description": "ui radio component with react",
   "main": "index.js",
   "repository": "git@github.com:jishiniao/radio.git",
   "author": "kaimiyang",
@@ -13,22 +13,29 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.6.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1",
     "express": "^4.15.4",
     "html-loader": "^0.5.1",
     "html-minifier": "^3.5.4",
     "html-webpack-plugin": "^2.30.1",
     "html-webpack-template": "^5.6.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "webpack": "^3.5.6",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.7.1",
     "webpack-hot-middleware": "^2.19.1"
   },
-  "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
-  }
+  "dependencies": {}
 }
