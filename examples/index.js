@@ -3,8 +3,19 @@ import ReactDOM from 'react-dom'
 
 import Radio from '../src/Radio'
 
+const radioDatas = {
+  '1' : {
+    name: '小明',
+    icon: 'alipay',
+  },
+}
+
+function radioClickTest(v) {
+  console.log(v)
+}
+
 ReactDOM.render(
-  <Radio />,
+  <Radio onClick={radioClickTest} />,
   document.getElementById('root')
 )
 

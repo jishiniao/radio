@@ -43,16 +43,18 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit:8192
+            }
+          }
+        ]
       }
-      // {
-      //   test: /\.(html)$/,
-      //   use: {
-      //     loader: 'html-loader',
-      //     options: {
-      //       attrs: [':data-src']
-      //     }
-      //   }
-      // }
     ]
   }
 }
