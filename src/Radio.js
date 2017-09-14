@@ -8,6 +8,10 @@ export default class Radio extends React.Component {
 
   static propTypes = {
     datas : PropTypes.array,
+    defValue: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     onClick: PropTypes.func,
     sort: PropTypes.number, //1 horizontal, 2 Vertical
   }
@@ -16,17 +20,18 @@ export default class Radio extends React.Component {
     datas : [
       {
         name: '支付宝',
-        value: '1',
+        value: 1,
         icon: 'alipay',
       },
       {
         name: '微信支付',
-        value: '2',
+        value: 2,
         icon: 'wechat',
       },
       {
         name: '对公转账',
-        value: '3',
+        value: 3,
+        spaceRight: '0',
       }
     ],
     sort: 1,
@@ -48,9 +53,13 @@ export default class Radio extends React.Component {
     const { datas } = this.props
     const datasList = List(datas)
     return datasList.map((data, k) => {
+
+
       return <Item key={k} icon={data.icon}
               name={data.name}
               value={data.value}
+              spaceRight={data.spaceRight}
+              isDef={data.isDef}
               onClick={this.handleClick} />
     })
   }

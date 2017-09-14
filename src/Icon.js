@@ -7,10 +7,10 @@ const Icon = styled.span`
   display: inline-block;
   width: 1em;
   height: 1em;
-  vertical-align: middle;
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 100% 100%;
+  margin-left: 0.5em;
 `
 
 export const IconAlipay = styled(Icon)`
