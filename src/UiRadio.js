@@ -4,15 +4,15 @@ import { List } from 'immutable'
 
 import Item from './Item'
 
-export default class Radio extends React.Component {
+export default class UiRadio extends React.Component {
 
   static propTypes = {
-    datas : PropTypes.array,
+    datas : PropTypes.array.isRequired,
     defValue: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
-    ]),
-    onClick: PropTypes.func,
+    ]).isRequired,
+    onClick: PropTypes.func.isRequired,
     sort: PropTypes.number, //1 horizontal, 2 Vertical
   }
 
@@ -34,32 +34,41 @@ export default class Radio extends React.Component {
         spaceRight: '0',
       }
     ],
+    defValue: 1,
     sort: 1,
   }
 
   constructor(props) {
     super(props)
 
+    const { defValue } = this.props
+
+    this.state = {
+      defValue,
+    }
+
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e) {
     const { onClick } = this.props
-    const value = e.target.id
+    const value = e.currentTarget.dataset['value']
+    this.setState({ defValue: value })
     onClick(value)
   }
 
   renderItems() {
     const { datas } = this.props
+    const { defValue } = this.state
+
     const datasList = List(datas)
     return datasList.map((data, k) => {
-
-
+      const elIsDef = (data.value == defValue) ? true : false
       return <Item key={k} icon={data.icon}
               name={data.name}
               value={data.value}
               spaceRight={data.spaceRight}
-              isDef={data.isDef}
+              isDef={elIsDef}
               onClick={this.handleClick} />
     })
   }

@@ -64,7 +64,7 @@ export default class Item extends React.Component {
       marginRight: spaceRight,
     }
 
-    return <div id={value} style={ItemStyle} onClick={onClick}>
+    return <div data-value={value} style={ItemStyle} onClick={onClick}>
       {this.renderItemDefault()}
       {this.renderIcon()}
       <Text>{name}</Text>

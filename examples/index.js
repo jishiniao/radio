@@ -1,21 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Radio from '../src/Radio'
+import UiRadio from '../src/UiRadio'
 
-const radioDatas = {
-  '1' : {
-    name: '小明',
-    icon: 'alipay',
+const datas = [
+  {
+    name: '按钮1',
+    value: 's1',
   },
-}
+  {
+    name: '按钮2',
+    value: 's2',
+  },
+]
 
 function radioClickTest(v) {
   console.log(v)
 }
 
 ReactDOM.render(
-  <Radio onClick={radioClickTest} />,
+  <UiRadio onClick={radioClickTest} />,
   document.getElementById('root')
 )
 
