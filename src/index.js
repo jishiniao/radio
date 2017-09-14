@@ -1,3 +1,3 @@
-import Radio from './Radio'
+import UiRadio from './UiRadio'
 
-export default Radio
+export default UiRadio
