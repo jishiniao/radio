@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import UiRadio from '../lib/index'
+import UiRadio from '../src/index'
 
 const datas = [
   {
@@ -14,12 +14,40 @@ const datas = [
   },
 ]
 
-function radioClickTest(v) {
-  console.log(v)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      disabled: false,
+    }
+
+    this.handleValue = this.handleValue.bind(this)
+    this.handlesubmit = this.handlesubmit.bind(this)
+  }
+
+  handleValue(v) {
+    console.log(v)
+  }
+
+  handlesubmit() {
+    this.setState({disabled: true})
+  }
+
+  render() {
+    const { disabled } = this.state
+    return (
+      <div>
+        <UiRadio onClick={this.handleValue} disabled={disabled} />
+        <button onClick={this.handlesubmit}>提交</button>
+      </div>
+    )
+  }
+
 }
 
 ReactDOM.render(
-  <UiRadio onClick={radioClickTest} />,
+  <App />,
   document.getElementById('root')
 )
 

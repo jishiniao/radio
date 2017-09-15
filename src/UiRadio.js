@@ -14,6 +14,7 @@ export default class UiRadio extends React.Component {
     ]).isRequired,
     onClick: PropTypes.func.isRequired,
     sort: PropTypes.number, //1 horizontal, 2 Vertical
+    disabled: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -36,15 +37,17 @@ export default class UiRadio extends React.Component {
     ],
     defValue: 1,
     sort: 1,
+    disabled: false,
   }
 
   constructor(props) {
     super(props)
 
-    const { defValue } = this.props
+    const { defValue, disabled } = this.props
 
     this.state = {
       defValue,
+      disabled,
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -58,7 +61,7 @@ export default class UiRadio extends React.Component {
   }
 
   renderItems() {
-    const { datas } = this.props
+    const { datas, disabled } = this.props
     const { defValue } = this.state
 
     const datasList = List(datas)
@@ -69,6 +72,7 @@ export default class UiRadio extends React.Component {
               value={data.value}
               spaceRight={data.spaceRight}
               isDef={elIsDef}
+              disabled={disabled}
               onClick={this.handleClick} />
     })
   }

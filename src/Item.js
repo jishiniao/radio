@@ -10,6 +10,9 @@ const textStyle = {
   paddingLeft:'0.5em'
 }
 
+const disableColor = '#DDD'
+const enableColor = '#427afb'
+
 export default class Item extends React.Component {
 
   static propTypes = {
@@ -22,12 +25,14 @@ export default class Item extends React.Component {
     onClick: PropTypes.func,
     spaceRight: PropTypes.string,
     isDef: PropTypes.bool,
+    disabled: PropTypes.bool,
   }
 
   static defaultProps = {
     icon: '',
     spaceRight: '2em',
     isDef: false,
+    disabled: false,
   }
 
   constructor(props) {
@@ -49,12 +54,16 @@ export default class Item extends React.Component {
   }
 
   renderItemDefault() {
-    const { isDef } = this.props
-    return isDef ? <SvgCircleDot stroke={'#427afb'} fill={'#427afb'} /> : <SvgCircle />
+    const { isDef, disabled } = this.props
+    if(isDef) {
+      return disabled ? <SvgCircleDot stroke={disableColor} fill={disableColor} /> : <SvgCircleDot stroke={enableColor} fill={enableColor} />
+    } else {
+      return disabled ? <SvgCircle stroke={disableColor} /> : <SvgCircle />
+    }
   }
 
   render() {
-    const { onClick, name, value, spaceRight } = this.props
+    const { onClick, name, value, spaceRight, disabled } = this.props
 
     const ItemStyle = {
       cursor: 'pointer',
@@ -63,11 +72,20 @@ export default class Item extends React.Component {
       marginRight: spaceRight,
     }
 
-    return <div data-value={value} style={ItemStyle} onClick={onClick}>
-      {this.renderItemDefault()}
-      {this.renderIcon()}
-      <div style={textStyle}>{name}</div>
-    </div>
+    if(disabled) {
+      ItemStyle.color = disableColor
+      return <div data-value={value} style={ItemStyle}>
+        {this.renderItemDefault()}
+        {this.renderIcon()}
+        <div style={textStyle}>{name}</div>
+      </div>
+    } else {
+      return <div data-value={value} style={ItemStyle} onClick={onClick}>
+        {this.renderItemDefault()}
+        {this.renderIcon()}
+        <div style={textStyle}>{name}</div>
+      </div>
+    }
   }
 
 }
