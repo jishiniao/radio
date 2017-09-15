@@ -38,7 +38,7 @@ class App extends React.Component {
     const { disabled } = this.state
     return (
       <div>
-        <UiRadio onClick={this.handleValue} disabled={disabled} />
+        <UiRadio onClick={this.handleValue} disabled={disabled} datas={datas} defValue={'s1'} />
         <button onClick={this.handlesubmit}>提交</button>
       </div>
     )
