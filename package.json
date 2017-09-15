@@ -1,6 +1,6 @@
 {
   "name": "ui-radio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "ui radio component with react",
   "main": "./lib/index.js",
   "repository": "git@github.com:jishiniao/radio.git",
