@@ -18,7 +18,7 @@ use es6 import module, and then use, like this:
 
 ```javascript
 import UiRadio from 'ui-radio'
-<Radio onClick={radioClickTest} />
+<UiRadio onClick={radioClickTest} />
 ```
 
 ## Parameters

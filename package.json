@@ -2,13 +2,14 @@
   "name": "ui-radio",
   "version": "1.0.2",
   "description": "ui radio component with react",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "repository": "git@github.com:jishiniao/radio.git",
   "author": "kaimiyang",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config ./config/webpack.config.js",
-    "server": "node server.js"
+    "server": "node server.js",
+    "prepublish": "./node_modules/.bin/babel src -d lib"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -4,6 +4,9 @@
 #build
 /build
 
+#publish
+/lib
+
 #log
 yarn-error.log
 
