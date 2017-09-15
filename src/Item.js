@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import SvgCircle from './SvgCircle'
 import SvgCircleDot from './SvgCircleDot'
 import { IconAlipay, IconWechat } from './Icon'
 
-const Text = styled.span`
-  display: inline-block;
-  padding-left:0.5em;
-`
+const textStyle = {
+  display: 'inline-block',
+  paddingLeft:'0.5em'
+}
 
 export default class Item extends React.Component {
 
@@ -67,7 +66,7 @@ export default class Item extends React.Component {
     return <div data-value={value} style={ItemStyle} onClick={onClick}>
       {this.renderItemDefault()}
       {this.renderIcon()}
-      <Text>{name}</Text>
+      <div style={textStyle}>{name}</div>
     </div>
   }
 

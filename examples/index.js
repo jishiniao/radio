@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import UiRadio from '../src/UiRadio'
+import UiRadio from '../lib/index'
 
 const datas = [
   {
