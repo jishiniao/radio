@@ -17,8 +17,8 @@ $ yarn add ui-radio
 use es6 import module, and then use, like this:
 
 ```javascript
-import UiRadio from 'ui-radio'
-<UiRadio onClick={radioClickTest} />
+import Radio from 'ui-radio'
+<Radio onClick={radioClickTest} />
 ```
 
 ## Parameters

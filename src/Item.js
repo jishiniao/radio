@@ -12,6 +12,8 @@ const textStyle = {
 
 const disableColor = '#DDD'
 const enableColor = '#427afb'
+const bolderColor = '#D8D8D8'
+const bolderActiveColor = '#427AFB'
 
 export default class Item extends React.Component {
 
@@ -26,6 +28,7 @@ export default class Item extends React.Component {
     spaceRight: PropTypes.string,
     isDef: PropTypes.bool,
     disabled: PropTypes.bool,
+    children: PropTypes.node,
   }
 
   static defaultProps = {
@@ -63,7 +66,7 @@ export default class Item extends React.Component {
   }
 
   render() {
-    const { onClick, name, value, spaceRight, disabled } = this.props
+    const { onClick, name, value, spaceRight, disabled, children, isDef } = this.props
 
     const ItemStyle = {
       cursor: 'pointer',
@@ -72,20 +75,42 @@ export default class Item extends React.Component {
       marginRight: spaceRight,
     }
 
-    if(disabled) {
-      ItemStyle.color = disableColor
-      return <div data-value={value} style={ItemStyle}>
-        {this.renderItemDefault()}
-        {this.renderIcon()}
-        <div style={textStyle}>{name}</div>
-      </div>
-    } else {
-      return <div data-value={value} style={ItemStyle} onClick={onClick}>
-        {this.renderItemDefault()}
-        {this.renderIcon()}
-        <div style={textStyle}>{name}</div>
+    let clickFn = onClick
+
+    if(children) {
+      ItemStyle.border = `1px solid ${bolderColor}`
+
+      if(isDef) {
+        ItemStyle.borderColor = bolderActiveColor
+        if(disabled) {
+          ItemStyle.borderColor = bolderColor
+          ItemStyle.boxShadow = `0 0 3px 0 ${bolderColor}`
+        } else {
+          ItemStyle.boxShadow = `0 0 3px 0 ${bolderActiveColor}`
+        }
+      } else {
+        ItemStyle.borderColor = bolderColor
+      }
+
+      if(disabled) {
+        clickFn = null
+      }
+
+      return <div data-value={value} style={ItemStyle} onClick={clickFn}>
+        {children}
       </div>
     }
+
+    if(disabled) {
+      ItemStyle.color = disableColor
+      clickFn = null
+    }
+
+    return <div data-value={value} style={ItemStyle} onClick={clickFn}>
+      {this.renderItemDefault()}
+      {this.renderIcon()}
+      <div style={textStyle}>{name}</div>
+    </div>
   }
 
 }

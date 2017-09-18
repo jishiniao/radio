@@ -4,7 +4,7 @@ import { List } from 'immutable'
 
 import Item from './Item'
 
-export default class UiRadio extends React.Component {
+export default class Radio extends React.Component {
 
   static propTypes = {
     datas : PropTypes.array.isRequired,
@@ -73,7 +73,7 @@ export default class UiRadio extends React.Component {
               spaceRight={data.spaceRight}
               isDef={elIsDef}
               disabled={disabled}
-              onClick={this.handleClick} />
+              onClick={this.handleClick}>{data.children}</Item>
     })
   }
 

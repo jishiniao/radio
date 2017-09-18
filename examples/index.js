@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import UiRadio from '../src/index'
+import Radio from '../src/index'
 
 const datas = [
   {
@@ -11,6 +11,17 @@ const datas = [
   {
     name: '按钮2',
     value: 's2',
+  },
+]
+
+const datas2 = [
+  {
+    children: <div>按钮1，<span>iuiui</span></div>,
+    value: 1,
+  },
+  {
+    children: '按钮2',
+    value: 2,
   },
 ]
 
@@ -38,7 +49,7 @@ class App extends React.Component {
     const { disabled } = this.state
     return (
       <div>
-        <UiRadio onClick={this.handleValue} disabled={disabled} datas={datas} defValue={'s1'} />
+        <Radio onClick={this.handleValue} disabled={disabled} datas={datas2} defValue={'s1'} />
         <button onClick={this.handlesubmit}>提交</button>
       </div>
     )
