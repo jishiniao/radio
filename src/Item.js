@@ -83,6 +83,7 @@ export default class Item extends React.Component {
       if(isDef) {
         ItemStyle.borderColor = bolderActiveColor
         if(disabled) {
+          ItemStyle.color = disableColor
           ItemStyle.borderColor = bolderColor
           ItemStyle.boxShadow = `0 0 3px 0 ${bolderColor}`
         } else {

@@ -50,14 +50,14 @@ export default class Radio extends React.Component {
       disabled,
     }
 
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(e) {
+  handleClick(data) {
     const { onClick } = this.props
-    const value = e.currentTarget.dataset['value']
+    // const value = e.currentTarget.dataset['value']
+    const value = data.value
     this.setState({ defValue: value })
-    onClick(value)
+    onClick(data)
   }
 
   renderItems() {
@@ -73,7 +73,7 @@ export default class Radio extends React.Component {
               spaceRight={data.spaceRight}
               isDef={elIsDef}
               disabled={disabled}
-              onClick={this.handleClick}>{data.children}</Item>
+              onClick={this.handleClick.bind(this, data)}>{data.children}</Item>
     })
   }
 
