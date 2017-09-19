@@ -9,6 +9,3 @@
 
 #log
 yarn-error.log
-
-#json
-package-lock.json
