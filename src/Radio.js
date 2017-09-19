@@ -54,7 +54,6 @@ export default class Radio extends React.Component {
 
   handleClick(data) {
     const { onClick } = this.props
-    // const value = e.currentTarget.dataset['value']
     const value = data.value
     this.setState({ defValue: value })
     onClick(data)

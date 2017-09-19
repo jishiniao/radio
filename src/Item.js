@@ -80,10 +80,14 @@ export default class Item extends React.Component {
     if(children) {
       ItemStyle.border = `1px solid ${bolderColor}`
 
+      if(disabled) {
+        ItemStyle.color = disableColor
+        clickFn = null
+      }
+
       if(isDef) {
         ItemStyle.borderColor = bolderActiveColor
         if(disabled) {
-          ItemStyle.color = disableColor
           ItemStyle.borderColor = bolderColor
           ItemStyle.boxShadow = `0 0 3px 0 ${bolderColor}`
         } else {
@@ -93,18 +97,9 @@ export default class Item extends React.Component {
         ItemStyle.borderColor = bolderColor
       }
 
-      if(disabled) {
-        clickFn = null
-      }
-
       return <div data-value={value} style={ItemStyle} onClick={clickFn}>
         {children}
       </div>
-    }
-
-    if(disabled) {
-      ItemStyle.color = disableColor
-      clickFn = null
     }
 
     return <div data-value={value} style={ItemStyle} onClick={clickFn}>
