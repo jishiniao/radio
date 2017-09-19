@@ -49,7 +49,7 @@ class App extends React.Component {
     const { disabled } = this.state
     return (
       <div>
-        <Radio onClick={this.handleValue} disabled={disabled} datas={datas2} defValue={'s1'} />
+        <Radio onClick={this.handleValue} disabled={disabled} datas={datas2} defValue={1} />
         <button onClick={this.handlesubmit}>提交</button>
       </div>
     )

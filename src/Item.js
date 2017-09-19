@@ -77,13 +77,13 @@ export default class Item extends React.Component {
 
     let clickFn = onClick
 
+    if(disabled) {
+      ItemStyle.color = disableColor
+      clickFn = null
+    }
+
     if(children) {
       ItemStyle.border = `1px solid ${bolderColor}`
-
-      if(disabled) {
-        ItemStyle.color = disableColor
-        clickFn = null
-      }
 
       if(isDef) {
         ItemStyle.borderColor = bolderActiveColor
