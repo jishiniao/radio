@@ -1,6 +1,11 @@
 # ui-radio
 
-In react various of single selection, solve app and website 's radio, examples:
+[![babel Version][babel-image]][babel-url]
+[![react Version][react-image]][react-url]
+
+ui-radio is a react component: for instead of html radio element, and extend html radio element's properties. new properties includs:
+* datas
+* defValue
 
 ## Installation
 
@@ -18,7 +23,10 @@ use es6 import module, and then use, like this:
 
 ```javascript
 import Radio from 'ui-radio'
-<Radio onClick={radioClickTest} />
+// eg1
+<Radio onClick={fun} />
+// eg2
+<Radio onClick={fun} disabled={boolean} datas={objectData} defValue={stringOrNumber} />
 ```
 
 ## Parameters
@@ -31,3 +39,5 @@ import Radio from 'ui-radio'
 | `sort`| number  | no  | 1 show horizontal radios style, 2 show Vertical radios style |
 
 ### Parameters one object of datas
+
+## examples
