@@ -1,7 +1,6 @@
 # ui-radio
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
+[NPM Version](https://www.npmjs.com/package/ui-radio)
 
 ui-radio is a react component: for instead of html radio element, and extend html radio element's properties. new properties includs:
 * datas
