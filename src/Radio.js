@@ -13,7 +13,7 @@ export default class Radio extends React.Component {
       PropTypes.number,
     ]).isRequired,
     onClick: PropTypes.func.isRequired,
-    sort: PropTypes.number, //1 horizontal, 2 Vertical
+    layout: PropTypes.number, //1 horizontal, 2 Vertical
     disabled: PropTypes.bool,
   }
 
@@ -36,7 +36,7 @@ export default class Radio extends React.Component {
       }
     ],
     defValue: 1,
-    sort: 1,
+    layout: 1,
     disabled: false,
   }
 
@@ -77,8 +77,8 @@ export default class Radio extends React.Component {
   }
 
   render() {
-    const { sort } = this.props
-    const HOrV = (sort === 2) ? 'column nowrap' : 'row nowrap'
+    const { layout } = this.props
+    const HOrV = (layout === 2) ? 'column nowrap' : 'row nowrap'
     const RadioStyle = {
       display: 'flex',
       flexFlow: HOrV,
