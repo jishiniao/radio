@@ -1,6 +1,6 @@
 # ui-radio
 
-[NPM Download](https://www.npmjs.com/package/ui-radio)
+[NPM Download](https://www.npmjs.com/package/ui-radio) [Github Download](https://github.com/jishiniao/radio)
 
 ui-radio is a react component: for instead of html radio element, enhance disabled property and extend html radio element's properties. new properties includs:
 * datas
@@ -62,6 +62,7 @@ Parameter datas have default value, like this:
 ```
 
 when you fill `datds` parameter with your data, radio component render a new radios group. `datds` parameter is an array, every array element is an object. If you create a simple radio group, an object includs the following properties:
+
 | Name      | Type   | IsRequired | Description |
 | --------- | ------ | ---------- | ----------- |
 | `value` | string or number | yes |  form value data |
@@ -84,6 +85,7 @@ when you fill `datds` parameter with your data, radio component render a new rad
 ```
 
 You can create a complex radio group, an object includs the following properties:
+
 | Name      | Type   | IsRequired | Description |
 | --------- | ------ | ---------- | ----------- |
 | `value` | string or number | yes | form value data |
