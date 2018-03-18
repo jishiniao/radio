@@ -3,7 +3,7 @@ import React from 'react'
 import ImgAlipay from './imgs/icon-alipay.png'
 import ImgWechat from './imgs/icon-wechat.png'
 
-const spanStyle = {
+const iconStyle = {
   display: 'inline-block',
   width: '1em',
   height: '1em',
@@ -14,11 +14,17 @@ const spanStyle = {
 }
 
 export const IconAlipay = () => {
-  spanStyle.backgroundImage = `url('${ImgAlipay}')`
-  return <span style={spanStyle}/>
+  const styles = {
+    ...iconStyle,
+    backgroundImage: `url('${ImgAlipay}')`,
+  }
+  return <span style={styles}/>
 }
 
 export const IconWechat = () => {
-  spanStyle.backgroundImage = `url('${ImgWechat}')`
-  return <span style={spanStyle}/>
+  const styles = {
+    ...iconStyle,
+    backgroundImage: `url('${ImgWechat}')`,
+  }
+  return <span style={styles}/>
 }

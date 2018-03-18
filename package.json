@@ -9,8 +9,7 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.config.js",
     "server": "node server.js",
-    "cp": "cp -r ./src/imgs ./lib/.",
-    "prepare": "./node_modules/.bin/babel src -d lib"
+    "prepare": "rm ./lib/* && cp -r ./src/imgs ./lib/. && babel src -d lib"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -36,8 +35,8 @@
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-svg-inline": "^2.0.0",
     "styled-components": "^2.1.2",
     "url-loader": "^0.5.9",
