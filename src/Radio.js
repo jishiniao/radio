@@ -15,6 +15,8 @@ export default class Radio extends React.Component {
     onClick: PropTypes.func.isRequired,
     layout: PropTypes.number, //1 horizontal, 2 Vertical
     disabled: PropTypes.bool,
+    itemStyle: PropTypes.object,
+    itemClass: PropTypes.string,
   }
 
   static defaultProps = {
@@ -60,19 +62,37 @@ export default class Radio extends React.Component {
   }
 
   renderItems() {
-    const { datas, disabled } = this.props
+    const {
+      datas,
+      disabled,
+      itemStyle,
+      itemClass,
+    } = this.props
     const { defValue } = this.state
 
     const datasList = List(datas)
     return datasList.map((data, k) => {
-      const elIsDef = (data.value == defValue) ? true : false
-      return <Item key={k} icon={data.icon}
-              name={data.name}
-              value={data.value}
-              spaceRight={data.spaceRight}
-              isDef={elIsDef}
-              disabled={disabled}
-              onClick={this.handleClick.bind(this, data)}>{data.children}</Item>
+      const {
+        icon,
+        name,
+        value,
+        spaceRight,
+        children,
+      } = data
+      const isDef = (data.value == defValue) ? true : false
+      const itemProps = {
+        icon,
+        name,
+        value,
+        spaceRight,
+        children,
+        isDef,
+        disabled,
+        onClick: this.handleClick.bind(this, data),
+        itemStyle,
+        itemClass,
+      }
+      return <Item key={k} {...itemProps} />
     })
   }
 

@@ -29,6 +29,8 @@ export default class Item extends React.Component {
     isDef: PropTypes.bool,
     disabled: PropTypes.bool,
     children: PropTypes.node,
+    itemStyle: PropTypes.object,
+    itemClass: PropTypes.string,
   }
 
   static defaultProps = {
@@ -66,43 +68,54 @@ export default class Item extends React.Component {
   }
 
   render() {
-    const { onClick, name, value, spaceRight, disabled, children, isDef } = this.props
+    const {
+      onClick,
+      name,
+      value,
+      spaceRight,
+      disabled,
+      children,
+      isDef,
+      itemStyle,
+      itemClass,
+    } = this.props
 
-    const ItemStyle = {
+    const styles = {
       cursor: 'pointer',
       display: 'flex',
       alignItems: 'center',
       marginRight: spaceRight,
+      ...itemStyle,
     }
 
     let clickFn = onClick
 
     if(disabled) {
-      ItemStyle.color = disableColor
+      styles.color = disableColor
       clickFn = null
     }
 
     if(children) {
-      ItemStyle.border = `1px solid ${bolderColor}`
+      styles.border = `1px solid ${bolderColor}`
 
       if(isDef) {
-        ItemStyle.borderColor = bolderActiveColor
+        styles.borderColor = bolderActiveColor
         if(disabled) {
-          ItemStyle.borderColor = bolderColor
-          ItemStyle.boxShadow = `0 0 3px 0 ${bolderColor}`
+          styles.borderColor = bolderColor
+          styles.boxShadow = `0 0 3px 0 ${bolderColor}`
         } else {
-          ItemStyle.boxShadow = `0 0 3px 0 ${bolderActiveColor}`
+          styles.boxShadow = `0 0 3px 0 ${bolderActiveColor}`
         }
       } else {
-        ItemStyle.borderColor = bolderColor
+        styles.borderColor = bolderColor
       }
 
-      return <div data-value={value} style={ItemStyle} onClick={clickFn}>
+      return <div data-value={value} style={styles} onClick={clickFn} className={itemClass}>
         {children}
       </div>
     }
 
-    return <div data-value={value} style={ItemStyle} onClick={clickFn}>
+    return <div data-value={value} style={styles} onClick={clickFn}>
       {this.renderItemDefault()}
       {this.renderIcon()}
       <div style={textStyle}>{name}</div>
