@@ -9,6 +9,7 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.config.js",
     "server": "node server.js",
+    "clean": "rm -rf ./lib/*",
     "cp": "cp -r ./src/imgs ./lib/.",
     "prepare": "babel src -d lib"
   },
