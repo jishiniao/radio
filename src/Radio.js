@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { List } from 'immutable'
 
 import Item from './Item'
 
@@ -70,8 +69,7 @@ export default class Radio extends React.Component {
     } = this.props
     const { defValue } = this.state
 
-    const datasList = List(datas)
-    return datasList.map((data, k) => {
+    return datas.map((data, k) => {
       const {
         icon,
         name,

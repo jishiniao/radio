@@ -34,9 +34,6 @@
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "raw-loader": "^0.5.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-svg-inline": "^2.0.0",
     "styled-components": "^2.1.2",
     "url-loader": "^0.5.9",
     "webpack": "^4.35.0",
@@ -48,6 +45,9 @@
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.2.0",
     "@babel/plugin-transform-react-display-name": "^7.2.0",
-    "@babel/plugin-transform-react-jsx": "^7.3.0"
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-svg-inline": "^2.1.1"
   }
 }
