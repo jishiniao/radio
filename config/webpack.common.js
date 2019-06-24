@@ -1,27 +1,18 @@
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
-
-const hotMiddlewareScript = 'webpack-hot-middleware/client'
 
 module.exports = {
   entry: {
-    app: [path.resolve(__dirname, '../examples/index.js'), hotMiddlewareScript]
+    app: [path.resolve(__dirname, '../src/App.js')]
   },
-  devtool: 'inline-source-map',
-  // devServer: {
-  //   contentBase: path.resolve(__dirname, '../build')
-  // },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       title: 'radio component',
-      // template: require('html-webpack-template'),
-      template: path.resolve(__dirname, '../examples/index.ejs')
+      template: path.resolve(__dirname, '../assets/radio.html')
     }),
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
   ],
   output: {
     filename: '[name]bundle.js',
@@ -35,13 +26,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              'env',
-              'es2015',
-              'stage-0'
-            ]
-          }
         }
       },
       {
