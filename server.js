@@ -1,3 +1,6 @@
+process.argv.forEach((val, index) => {
+  console.log(`${index}: ${val}`)
+})
 const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
