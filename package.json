@@ -9,6 +9,7 @@
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.js",
     "start": "webpack-dev-server --open --config ./config/webpack.dev.js",
+    "prepare": "rm ./lib/* && npx babel src -d lib",
     "test": "node ./server.js"
   },
   "devDependencies": {
