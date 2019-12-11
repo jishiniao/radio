@@ -50,9 +50,9 @@ const Radio = ({
     display: 'flex',
     flexFlow: HOrV,
   }
-  // useEffect(() => {
-  //   setDefValue(defValue)
-  // }, [defValue])
+  useEffect(() => {
+    setDefValue(defValue)
+  }, [defValue])
   return (
     <div style={RadioStyle}>
       {renderItems()}

@@ -54,6 +54,15 @@ export default class Radio extends React.Component {
 
   }
 
+  componentDidUpdate(prevProps) {
+    const {
+      defValue,
+    } = this.props
+    if (prevProps.defValue != this.props.defValue) {
+      this.setState({ defValue })
+    }
+  }
+
   handleClick(data) {
     const { onClick } = this.props
     const value = data.value

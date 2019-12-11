@@ -7,11 +7,15 @@ import {
 
 const Demo = () => {
   const [disable, setDisable] = useState(false)
+  const [defValue, setDefValue] = useState(1)
   const handleValue = (v)=> {
     console.log('test data: ', v)
   }
   const handlesubmit = () => {
     setDisable(true)
+  }
+  const setDefValue2 = () => {
+    setDefValue(2)
   }
   const radioProps = {
     onClick: handleValue,
@@ -19,13 +23,14 @@ const Demo = () => {
     itemClass: 'atest',
     disabled: disable,
     datas: customDatas,
-    defValue: 2,
+    defValue,
   }
   return (
     <React.Fragment>
       <Radio onClick={handleValue} layout={2} />
       <Radio {...radioProps} />
       <button onClick={handlesubmit}>提交</button>
+      <button onClick={setDefValue2}>提交</button>
     </React.Fragment>
   )
 }
