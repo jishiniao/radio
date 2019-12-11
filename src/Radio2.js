@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Item from './Item'
 
@@ -50,6 +50,9 @@ const Radio = ({
     display: 'flex',
     flexFlow: HOrV,
   }
+  useEffect(() => {
+    setDefValue(defValue)
+  }, [defValue])
   return (
     <div style={RadioStyle}>
       {renderItems()}

@@ -4,6 +4,7 @@ import Radio from '../index'
 import {
   customDatas,
 } from './data'
+import { Hello } from 'coin33'
 
 const Demo = () => {
   const [disable, setDisable] = useState(false)
@@ -19,10 +20,11 @@ const Demo = () => {
     itemClass: 'atest',
     disabled: disable,
     datas: customDatas,
-    defValue: 1,
+    defValue: 2,
   }
   return (
     <React.Fragment>
+      <Hello compiler='TypeScript' framework='React' />
       <Radio onClick={handleValue} layout={2} />
       <Radio {...radioProps} />
       <button onClick={handlesubmit}>提交</button>
